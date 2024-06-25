@@ -1,0 +1,32 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD","netstat -ltn | grep -c 1337"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    depends_on:
+      - kv
+    environment:
+      - KV_URL=redis://kv:6379
+      - PORT=1337
+      - PARAM_MODE="path"
+    ports:
+      - 1337:1337
+  kv:
+    image: 'docker.dragonflydb.io/dragonflydb/dragonfly:latest'
+    ports:
+      - 6379:6379
+    # Configure your DragonflyDB instance here (https://www.dragonflydb.io/docs/managing-dragonfly/flags)
+    # environment:
+    #   - DFLY_*=...
+    healthcheck:
+      test: ["CMD","netstat -ltn | grep -c 6379"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

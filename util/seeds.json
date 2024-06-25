@@ -1,0 +1,14 @@
+[
+    {
+        "key": "google",
+        "value": "https://google.com"
+    },
+    {
+        "key": "youtube",
+        "value": "https://youtube.com"
+    },
+    {
+        "key": "github",
+        "value": "https://github.com/"
+    }
+]
