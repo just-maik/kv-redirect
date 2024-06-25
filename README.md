@@ -19,7 +19,7 @@
 
 ## Parameter Modes
 - `path` uses the slug after the `/` as redirection key
-- `subdomain` uses the first subdomain as redirection key (needs `BASE_DOMAIN` variable)
+- `subdomain` uses the subdomain (before `BASE_DOMAIN`) as redirection key (needs `BASE_DOMAIN` variable)
 
 ## Defaults
 - If no KV_URL is given, `redis://localhost:6379` will be used
@@ -36,7 +36,7 @@ Just start it after adding the environment variable.
 **Supported**:
 - node
 - bun
-
+- docker
 
 ### If you are using the source code (requires bun)
 - bun i - to install all project dependencies
