@@ -14,5 +14,6 @@ RUN rm -rf ~/.bun
 WORKDIR /app
 
 COPY --from=build-step /app/dist/* /app/
+COPY --from=build-step /app/seeds.json /app/seeds.json
 
 CMD [ "bun","index-bun.js" ]
