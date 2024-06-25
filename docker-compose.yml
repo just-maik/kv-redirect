@@ -15,6 +15,8 @@ services:
       - KV_URL=redis://kv:6379
       - PORT=1337
       - PARAM_MODE="path"
+      - INITIAL_SEEDING=false
+      # - BASE_DOMAIN=...
     ports:
       - 1337:1337
   kv:

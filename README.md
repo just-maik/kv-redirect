@@ -15,6 +15,7 @@
 - PORT - The port to listen on
 - PARAM_MODE - Changes from where the parameter is read
 - BASE_DOMAIN - Basedomain (only needed if subdomain mode is used)
+- INITIAL_SEEDING - If set to true, the seeds.json file in the root directory will be seeded upon startup.
 
 ## Parameter Modes
 - `path` uses the slug after the `/` as redirection key
@@ -40,7 +41,6 @@ Just start it after adding the environment variable.
 ### If you are using the source code (requires bun)
 - bun i - to install all project dependencies
 - bun ball - to b(uild)all targets
-- bun seed - to seed `seeds.json`
 - bun start - to start
 - bun dev - to start while watching
 ###### Docker and Docker-Compose files are preconfigured, Docker-Compose uses [dragonfly](https://github.com/dragonflydb/dragonfly) as KV-Store
@@ -50,4 +50,4 @@ Just start it after adding the environment variable.
 - Redis compatible client from `@redis/client`
 #### For seeding interface
 - Fancy CLI spinners from `ora`
-- Fancy CLI outputs from `terminal-kit`
+- Fancy Console from `consola`
