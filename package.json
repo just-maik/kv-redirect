@@ -1,0 +1,32 @@
+{
+  "version": "0.0.1",
+  "name": "kv-redirect",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun run index.ts",
+    "dev": "bun run index.ts --watch",
+    "ball": "bun build:bun && bun build:node && bun build:compiled",
+    "build:bun": "bun build ./index.ts --target bun --outdir ./dist  --minify --entry-naming [dir]/[name]-bun.[ext]",
+    "build:node": "bun build ./index.ts --target node --outdir ./dist  --minify --entry-naming [dir]/[name]-node.[ext]",
+    "build:compiled": "bun build ./index.ts --compile --outfile ./dist/kv-redirect --minify ",
+    "seed": "bun run util/seed.ts",
+    "bump": "bunx -y taze major -w",
+    "change": "bunx -y changelogen --bump --output",
+    "release": "bunx -y changelogen --release --no-bump --no-output --no-commit --push"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "ora": "^8.0.1",
+    "terminal-kit": "^3.1.1",
+    "@types/terminal-kit": "^2.5.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@redis/client": "^1.5.16",
+    "consola": "^3.2.3",
+    "hono": "^4.4.8"
+  }
+}
